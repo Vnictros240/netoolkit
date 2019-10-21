@@ -25,3 +25,14 @@ def serverSocket():
         clientsocket.send(message.encode('ascii'))
 
         clientsocket.close()
+
+def scan(target_ip, number_of_ports):
+    for port in range(1, number_of_ports):
+        sock = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
+        result = sock.connect_ex((target_ip, port))
+        if result == 0:
+            print("Port {}: Open".format(port))
+            sock.close()
+            
+def newfunction():
+    pass
